@@ -1,6 +1,9 @@
 import cv2
+import numpy as np
 
 def segmentation_disc(isolated_nerve, img_eq):
+    iq = np.float32(img_eq)
+    
     orig = isolated_nerve.copy()
     orig_2 = img_eq.copy()
     
