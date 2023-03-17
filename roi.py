@@ -33,7 +33,7 @@ def isolaNervo(img, rSize):
         H = int(rH//2 + rSize//4)
     a,l,c = img.shape
     img = img[h:H,w:W]
-    st.write(h,H,w,W)
+    #st.write(h,H,w,W)
     f = a//2
     a,l,c = img.shape
 
