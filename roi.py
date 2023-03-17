@@ -19,7 +19,7 @@ def isolaNervo(img, rSize):
         fh = altura/rH
     
     img = cv2.resize(img,(rW,rH))
-    #W,w,H,h,nerve = OpticalLocationCenter2Outside(img,rW,rH)
+    W,w,H,h,nerve = OpticalLocationCenter2Outside(img,rW,rH)
     W = largura
     w = 0
     H = altura
@@ -42,17 +42,14 @@ def isolaNervo(img, rSize):
     fnW = l/ln
     fnH = a/an
 
-    #return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
-    return img
+    return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
+    #return img
     
 def OpticalLocationCenter2Outside(img,rW,rH):
-    img = img.resize((rW,rH))
-    imgR = img.copy()  
-    imgblk = cv2.imread('069.jpg')
-    imgblk = cv2.cvtColor(imgblk,cv2.COLOR_BGR2GRAY)
-    #imgblk = imgblk.resize((rW,rH))  
-    altura,largura = img.size
-    alturaR,larguraR = imgR.size
+    imgR = img.copy()
+    imgblk = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    altura,largura,cores = img.shape
+    alturaR,larguraR,coresR = imgR.shape
     md,ml,ld,ll = cv2.minMaxLoc(imgblk)  
     xc = int(largura//2)
     yc = int(altura//2)
@@ -63,7 +60,7 @@ def OpticalLocationCenter2Outside(img,rW,rH):
     fl = largura//nbusca
     x,y,X,Y = (1,1,1,1)
 
-    '''
+    
     while busca <= nbusca and x>0 and y>0 and X<largura and Y < altura:
         fbuscaA = int(fa*busca)
         fbuscaL = int(fl*busca)
@@ -73,9 +70,10 @@ def OpticalLocationCenter2Outside(img,rW,rH):
         Y = yc + fbuscaA
         
         imgBusca = img[y:Y,x:X]
-        imgBusca = retinex_mod.exRetinexDirecaoTone(imgBusca)
-        imgBusca = utils_mod.histogram_equalization(imgBusca)
-        imgBusca = utils_mod.medianBlurCustom(imgBusca,9,9)
+        #imgBusca = retinex_mod.exRetinexDirecaoTone(imgBusca)
+        imgBusca = utils.histogram_equalization(imgBusca)
+        import utils
+        imgBusca = utils.medianBlurCustom(imgBusca,9,9)
         imgAux = cv2.cvtColor(imgBusca,cv2.COLOR_BGR2GRAY)
         md,ml,ld,ll = cv2.minMaxLoc(imgAux)
         px = ll[0]
@@ -109,5 +107,5 @@ def OpticalLocationCenter2Outside(img,rW,rH):
             if Yf > alturaR: Yf = alturaR            
             return Xf,xf,Yf,yf,nerve
         busca += 1
-    '''
+        
     return largura,0,altura,0,nerve
