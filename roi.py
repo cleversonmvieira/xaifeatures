@@ -5,7 +5,7 @@ import numpy as np
 
 def isolaNervo(img, rSize):
     
-    altura,largura = img.size 
+    altura,largura,cores = img.shape 
     
     if altura < largura :        
         rH = rSize
@@ -19,7 +19,7 @@ def isolaNervo(img, rSize):
         fh = altura/rH
     
     img = img.resize((rW,rH))
-    W,w,H,h,nerve = OpticalLocationCenter2Outside(img,rW,rH)
+    #W,w,H,h,nerve = OpticalLocationCenter2Outside(img,rW,rH)
     W = largura
     w = 0
     H = altura
@@ -31,15 +31,14 @@ def isolaNervo(img, rSize):
         W = int(rW//2 + rSize//4)
         h = int(rH//2 - rSize//4)
         H = int(rH//2 + rSize//4)
-    a,l = img.size
-    #img = img.crop((h,H,w,W))
-    img = img.crop((w,W,h,H))
+    a,l,c = img.shape
+    img = img[h:H,w:W]
     st.write(h,H,w,W)
     f = a//2
-    a,l = img.size
+    a,l,c = img.shape
 
     img = img.resize((150,150))
-    an,ln = img.size
+    an,ln,cn = img.shape
     fnW = l/ln
     fnH = a/an
 
