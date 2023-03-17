@@ -43,7 +43,6 @@ def isolaNervo(img, rSize):
     fnH = a/an
 
     return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
-    #return img
     
 def OpticalLocationCenter2Outside(img,rW,rH):
     imgR = img.copy()
@@ -107,5 +106,5 @@ def OpticalLocationCenter2Outside(img,rW,rH):
             if Yf > alturaR: Yf = alturaR            
             return Xf,xf,Yf,yf,nerve
         busca += 1
-        
+
     return largura,0,altura,0,nerve
