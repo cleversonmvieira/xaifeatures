@@ -37,7 +37,7 @@ def isolaNervo(img, rSize):
     f = a//2
     a,l,c = img.shape
 
-    img = img.resize((150,150))
+    img = cv2.resize(img,(150,150))
     an,ln,cn = img.shape
     fnW = l/ln
     fnH = a/an
