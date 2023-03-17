@@ -9,10 +9,8 @@ def isolaNervo(img, rSize):
 
     altura,largura,cores = img.shape 
 
-    a = altura/2
-    l = largura/2
 
-    img[a-rSize : l+rSize,  a-rSize : a+rSize ]
+    img[100 : 500,  100 : 500]
 
     gray = cv2.GaussianBlur(gray, (15, 15), 0)
     (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(gray)
