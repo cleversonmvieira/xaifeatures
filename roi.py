@@ -16,5 +16,6 @@ def isolaNervo(img, rSize):
         fw = largura/rW
         fh = altura/rH
     
-    img = cv2.resize(img,(rW,rH),interpolation=cv2.INTER_CUBIC)
+    img = img.resize(rW,rH)
+    
     return img
