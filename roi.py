@@ -4,7 +4,7 @@ from  PIL import Image
 import numpy as np
 
 def isolaNervo(img, rSize):
-    
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     altura,largura,cores = img.shape 
     
     if altura < largura :        

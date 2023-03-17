@@ -120,9 +120,8 @@ def app():
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, 1)
 
-        #st.image(image, channels="BGR")
-        
         import roi
+
         rSize = 300
         rW,rw,rH,rh,fw,fh,nerve,fnW,fnH,img = roi.isolaNervo(image,rSize)
         #img = roi.isolaNervo(image,rSize)
