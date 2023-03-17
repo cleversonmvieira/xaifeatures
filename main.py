@@ -133,6 +133,11 @@ def app():
         img_eq = equalization.equalization(isolated_nerve)
         st.image(img_eq)
 
+        import segmentation
+
+        disc, rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        st.image(disc)
+        st.image(rect_disc)
            
 
 
