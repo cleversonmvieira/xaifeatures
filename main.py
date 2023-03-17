@@ -124,7 +124,7 @@ def app():
         #rW,rw,rH,rh,fw,fh,nerve,fnW,fnH,img = roi.isolaNervo(image,rSize)
         img = roi.isolaNervo(image,rSize)
 
-        st.image(img)
+        st.image(img, width = 196)
 
            
 
