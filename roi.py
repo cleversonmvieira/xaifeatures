@@ -1,11 +1,7 @@
-import streamlit as st
 import cv2
-import utils_mod
-import retinex_mod
-import numpy as np
-
 
 def isolaNervo(img, rSize):
+    img = cv2.imread(img)
     altura,largura,cores = img.shape    
     if altura < largura :        
         rH = rSize
