@@ -122,7 +122,7 @@ def app():
 
         import roi
 
-        rSize = 300
+        rSize = 400
         #rW,rw,rH,rh,fw,fh,nerve,fnW,fnH,img = roi.isolaNervo(image,rSize)
         gray, minVal, maxVal, minLoc, maxLoc, isolated_nerve = roi.isolaNervo(image, rSize)
 
