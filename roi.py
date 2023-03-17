@@ -18,7 +18,7 @@ def isolaNervo(img, rSize):
         fw = largura/rW
         fh = altura/rH
     
-    img = img.resize((rW,rH))
+    img = cv2.resize(img,(rW,rH))
     #W,w,H,h,nerve = OpticalLocationCenter2Outside(img,rW,rH)
     W = largura
     w = 0
