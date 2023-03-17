@@ -116,16 +116,24 @@ def app():
     uploaded_file = st.file_uploader("Selecione a imagem", type = ["jpg","jpeg", "png"], accept_multiple_files = False)
 
     if uploaded_file is not None:
-        image = Image.open(uploaded_file)
+
+
+        file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+        image = cv2.imdecode(file_bytes, 1)
+
+        # Now do something with the image! For example, let's display it:
+        st.image(image, channels="BGR")
+
+        #image = Image.open(uploaded_file)
         
         #st.image(Image.open(uploaded_file), width=96)
         
-        import roi
-        rSize = 300
+        #import roi
+        #rSize = 300
         #rW,rw,rH,rh,fw,fh,nerve,fnW,fnH,img = roi.isolaNervo(image,rSize)
-        img = roi.isolaNervo(image,rSize)
+        #img = roi.isolaNervo(image,rSize)
 
-        st.image(img)
+        #st.image(img)
 
            
 
