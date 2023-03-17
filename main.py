@@ -117,7 +117,7 @@ def app():
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
         
-        st.image(Image.open(uploaded_file), width=96)
+        #st.image(Image.open(uploaded_file), width=96)
         
         import roi
         rSize = 300
