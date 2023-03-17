@@ -127,7 +127,11 @@ def app():
         gray, minVal, maxVal, minLoc, maxLoc, isolated_nerve = roi.isolaNervo(image, rSize)
 
         st.image(isolated_nerve)
-        st.write(minVal, maxVal, minLoc, maxLoc)
+
+        import equalization
+
+        img_eq = equalization.equalization(isolated_nerve)
+        st.image(img_eq)
 
            
 
