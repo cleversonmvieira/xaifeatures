@@ -70,8 +70,8 @@ def OpticalLocationCenter2Outside(img,rW,rH):
         
         imgBusca = img[y:Y,x:X]
         #imgBusca = retinex_mod.exRetinexDirecaoTone(imgBusca)
-        #imgBusca = utils.histogram_equalization(imgBusca)
         import utils
+        imgBusca = utils.histogram_equalization(imgBusca)
         imgBusca = utils.medianBlurCustom(imgBusca,9,9)
         imgAux = cv2.cvtColor(imgBusca,cv2.COLOR_BGR2GRAY)
         md,ml,ld,ll = cv2.minMaxLoc(imgAux)
