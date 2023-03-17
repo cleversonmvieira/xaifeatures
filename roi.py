@@ -40,4 +40,4 @@ def isolaNervo(img, rSize):
     fnW = l/ln
     fnH = a/an
     
-    return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH, img
+    return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
