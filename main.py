@@ -87,60 +87,7 @@ def upload_neural_network():
 
     st.button("Enviar", on_click=upload)
     
-def upload_dataset():
-    
-    import os.path
-    import pathlib
 
-    logo = Image.open(r"./assets/images/logo_ufsj_01.jpg")
-    profile = Image.open(r"./assets/images/logo_dcomp_ufsj.png")
-
-    col1, col2, col3 = st.columns([0.3, 0.4, 0.3])
-
-    with col1:
-        st.image(logo, width = 250, use_column_width = False)
-    with col3: 
-        st.image(profile, width = 200)
-
-    st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
-
-    st.write(
-        """
-        Faça o upload de um dataset para futura utilização na plataforma/aplicação.
-        
-        Obs.: Somente arquivos .jpg, .jpeg e/ou .png são permitidos. 
-        """)
-    
-    st.sidebar.info("Área destinada ao upload de datasets.")
-
-    dataset_file = st.file_uploader("Carregue o(s) arquivo(s)", type=["jpg", "jpeg","png"], accept_multiple_files = True)
-
-    if dataset_file is not None:
-        file_details = {"filename":dataset_file.name, "filetype":dataset_file.type, "filesize":dataset_file.size}
-	    
-        st.write(file_details)
-        
-        #preview = st.text_area("csv Preview", "", height=150, key="preview")
-        st.image(Image.open(dataset_file), width=250)
-    upload_state = st.text_area("Feedback", "", key="upload_state", disabled=True)
-    
-    def upload():
-        if dataset_file is None:
-            st.session_state["upload_state"] = "Atenção! Carregue um arquivo primeiro."
-        else:
-            #data = uploaded_file.getvalue().decode('utf-8')
-            parent_path = pathlib.Path(__file__).parent.parent.resolve()           
-            save_path = os.path.join(parent_path, "xaiglaucoma/assets/datasets")
-            complete_name = os.path.join(save_path, dataset_file.name)
-            destination_file = open(complete_name, "wb")
-            with destination_file as f:
-                f.write((dataset_file).getbuffer())
-                f.close()
-                st.session_state["upload_state"] = "Arquivo(s) salvo(s) com sucesso!"
-                st.success('Arquivo salvo com sucesso!', icon="✅")
-                #st.session_state["upload_state"] = "O arquivo foi salvo com sucesso!" + complete_name + " successfully!"
-
-    st.button("Enviar", on_click=upload)
 
 def app():
     
@@ -176,7 +123,7 @@ def app():
         rSize = 300
         rW,rw,rH,rh,fw,fh,nerve,fnW,fnH, img = roi.isolaNervo(image,rSize)
 
-        st.image(img)
+        st.image(image)
 
            
 
