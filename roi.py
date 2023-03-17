@@ -49,7 +49,8 @@ def isolaNervo(img, rSize):
 def OpticalLocationCenter2Outside(img,rW,rH):
     img = img.resize((rW,rH))
     imgR = img.copy()  
-    imgblk = cv2.cvtColor(np.fromarray(img),cv2.COLOR_BGR2GRAY)
+    imgblk = cv2.imread('069.jpg')
+    imgblk = cv2.cvtColor(imgblk,cv2.COLOR_BGR2GRAY)
     #imgblk = imgblk.resize((rW,rH))  
     altura,largura = img.size
     alturaR,larguraR = imgR.size
