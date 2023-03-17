@@ -2,6 +2,7 @@ streamlit-option-menu
 scikit-image
 keras
 tensorflow
-opencv-python==4.7.*
-opencv-python-headless==4.7.*
+opencv-python
+opencv-python-headless
+opencv_contrib_python
 shap
