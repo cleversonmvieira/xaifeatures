@@ -1,7 +1,6 @@
 import cv2
 
 def isolaNervo(img, rSize):
-    img = cv2.imread(img)
     altura,largura,cores = img.shape    
     if altura < largura :        
         rH = rSize
