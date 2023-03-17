@@ -6,7 +6,14 @@ import numpy as np
 def isolaNervo(img, rSize):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
+
+    altura,largura,cores = img.shape 
+
+    a = altura/2
+    l = largura/2
+
+    img[a-rSize : l+rSize,  a-rSize : a+rSize ]
+
     gray = cv2.GaussianBlur(gray, (15, 15), 0)
     (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(gray)
 
