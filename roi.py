@@ -19,6 +19,8 @@ def isolaNervo(img, rSize):
     
     img = img.resize((rW,rH))
 
+    return img
+'''
     W = largura
     w = 0
     H = altura
@@ -41,7 +43,7 @@ def isolaNervo(img, rSize):
     an,ln = img.size
     fnW = l/ln
     fnH = a/an
-    
-    return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
+'''    
+    #return int(W*fw),int(w*fw),int(H*fh),int(h*fh),fw,fh,nerve,fnW,fnH,img
 
-    #return img
+    
