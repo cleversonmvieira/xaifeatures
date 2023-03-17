@@ -1,3 +1,4 @@
+import streamlit as st
 import cv2
 from  PIL import Image
 
@@ -32,6 +33,7 @@ def isolaNervo(img, rSize):
     a,l = img.size
     #img = img.crop((h,H,w,W))
     img = img.crop((w,W,h,H))
+    st.write(h,H,w,W)
     f = a//2
     a,l = img.size
 
