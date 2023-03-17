@@ -124,9 +124,10 @@ def app():
 
         rSize = 200
         #rW,rw,rH,rh,fw,fh,nerve,fnW,fnH,img = roi.isolaNervo(image,rSize)
-        img = roi.isolaNervo(image, rSize)
+        gray, minVal, maxVal, minLoc, maxLoc = roi.isolaNervo(image, rSize)
 
-        st.image(img)
+        st.image(gray)
+        st.write(minVal, maxVal, minLoc, maxLoc)
 
            
 
