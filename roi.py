@@ -3,7 +3,7 @@ from  PIL import Image
 
 def isolaNervo(img, rSize):
     
-    altura,largura,cores = img.shape    
+    altura,largura,cores = img.size 
     
     if altura < largura :        
         rH = rSize
