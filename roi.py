@@ -16,14 +16,8 @@ def isolaNervo(img, rSize):
     start_point = (maxLoc[0]-rSize, maxLoc[1]-rSize)
     end_point = (maxLoc[0]+rSize, maxLoc[1]+rSize)
 
-    cv2.rectangle(img, start_point, end_point, (0,0,0), 15)
+    cv2.rectangle(img, start_point, end_point, (255,255,255), 5)
     isolated_nerve = img[maxLoc[1]-rSize : maxLoc[1]+rSize,  maxLoc[0]-rSize : maxLoc[0]+rSize ]
+    isolated_nerve = cv2.resize(isolated_nerve,(150,150))
 
     return gray, minVal, maxVal, minLoc, maxLoc, isolated_nerve
-
-    
-'''
-    cv2.rectangle(img, start_point, end_point, (0,0,0), 15)
-    isolated_nerve = img[maxLoc[1]-rSize : maxLoc[1]+rSize,  maxLoc[0]-rSize : maxLoc[0]+rSize ]
-'''
-    
