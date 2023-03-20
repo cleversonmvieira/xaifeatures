@@ -146,7 +146,7 @@ def app():
         st.image(rect_disc) 
         st.write(rect_disc.shape, rect_disc.dtype)
 
-        rect_cup = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        rect_cup = segmentation.segmentation_cup(isolated_nerve, img_eq)
         st.image(rect_cup) 
         st.write(rect_cup.shape, rect_cup.dtype)
 
