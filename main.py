@@ -137,10 +137,12 @@ def app():
 
         import segmentation
 
-        disc, rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
-        st.image(disc)
-        st.image(rect_disc)
-           
+        #disc, rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        #st.image(disc)
+        #st.image(rect_disc)
+        
+        gray = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        st.image(gray) 
 
 
 def applyShap(image):
