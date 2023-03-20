@@ -8,6 +8,6 @@ def segmentation_disc(isolated_nerve, img_eq):
     
     gray = cv2.cvtColor(img_eq_int, cv2.COLOR_BGR2GRAY)
 
-    median = cv2.medianBlur(gray,15)
+    median = cv2.GaussianBlur(gray,(15,15))
     
     return median
