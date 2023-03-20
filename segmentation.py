@@ -18,7 +18,7 @@ def segmentation_disc(isolated_nerve, img_eq):
 
     #equ = cv2.equalizeHist(gray)
 
-    median = cv2.medianBlur(final,15)
+    median = cv2.medianBlur(final,7)
 
 
     lower_disc = np.array([255,229,0])
