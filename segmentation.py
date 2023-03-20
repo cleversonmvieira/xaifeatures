@@ -22,11 +22,16 @@ def segmentation_disc(isolated_nerve, img_eq):
     median = cv2.medianBlur(final,15)
 
 
-    lower = np.array([255,229,0])
-    upper = np.array([255,255,36])
+    lower_disc = np.array([255,229,0])
+    upper_disc = np.array([255,255,36])
+
+    lower_cup = np.array([255,255,255])
+    upper_cup = np.array([255,255,255])
 
     #_, disc = cv2.threshold(median, 33, 255, cv2.THRESH_BINARY)
 
-    disc = cv2.inRange(median, lower, upper)
+    disc = cv2.inRange(median, lower_disc, upper_disc)
+
+    cup = cv2.inRange(median, lower_cup, upper_cup)
     
-    return median, disc
+    return median, disc, cup

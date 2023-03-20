@@ -141,12 +141,15 @@ def app():
         #st.image(disc)
         #st.image(rect_disc)
         
-        gray, equ = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        gray, disc, cup = segmentation.segmentation_disc(isolated_nerve, img_eq)
         st.image(gray) 
         st.write(gray.shape, gray.dtype)
 
-        st.image(equ) 
-        st.write(equ.shape, equ.dtype)
+        st.image(disc) 
+        st.write(disc.shape, disc.dtype)
+
+        st.image(cup) 
+        st.write(cup.shape, cup.dtype)
 
 
 def applyShap(image):
