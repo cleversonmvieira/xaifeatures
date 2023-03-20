@@ -44,5 +44,17 @@ def segmentation_disc(isolated_nerve, img_eq):
     x,y,w,h = cv2.boundingRect(disc_contour)
 
     rect_disc = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)  
+
+
+    # Identificação dos contornos
+    contours_cup, _ = cv2.findContours(cup, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     
-    return median, disc, cup, rect_disc
+    # Encontrar o contorno com a maior área
+    cup_contour = max(contours_cup, key=cv2.contourArea)
+    
+    # Encontrar as coordenadas do retângulo ao redor do contorno encontrado
+    x,y,w,h = cv2.boundingRect(cup_contour)
+
+    rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)
+    
+    return median, disc, cup, rect_disc, rect_cup
