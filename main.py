@@ -134,7 +134,7 @@ def app():
         img_eq = equalization.equalization(isolated_nerve)
         st.image(img_eq)
 
-        st.write(img_eq.shape)
+        st.write(img_eq.shape, img_eq.dtype)
 
         import segmentation
 
