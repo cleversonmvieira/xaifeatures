@@ -141,19 +141,12 @@ def app():
         #st.image(disc)
         #st.image(rect_disc)
         
-        gray, disc, cup, rect_disc, rect_cup = segmentation.segmentation_disc(isolated_nerve, img_eq)
-        st.image(gray) 
-        st.write(gray.shape, gray.dtype)
-
-        st.image(disc) 
-        st.write(disc.shape, disc.dtype)
-
-        st.image(cup) 
-        st.write(cup.shape, cup.dtype)
-
+        rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
+        
         st.image(rect_disc) 
         st.write(rect_disc.shape, rect_disc.dtype)
 
+        rect_cup = segmentation.segmentation_disc(isolated_nerve, img_eq)
         st.image(rect_cup) 
         st.write(rect_cup.shape, rect_cup.dtype)
 
