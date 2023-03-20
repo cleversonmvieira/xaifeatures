@@ -133,7 +133,7 @@ def app():
         img_eq = equalization.equalization(isolated_nerve)
         st.image(img_eq)
 
-        img_eq_cv2 = cv2.imdecode(img_eq, 1)
+        img_eq_cv2 = cv2.imdecode(img_eq, cv2.IMREAD_COLOR)
 
         import segmentation
 
