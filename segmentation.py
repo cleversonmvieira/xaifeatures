@@ -5,8 +5,7 @@ from skimage import color, util
 
 def segmentation_disc(isolated_nerve, img_eq):
     img_eq = cv2.convertScaleAbs(img_eq)
-    #gray = color.rgb2gray(img_eq)
-    #gray = util.img_as_uint(gray)
+    orig = isolated_nerve.copy()
     
     norm = ppool.zeros((15,15))
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
@@ -33,5 +32,17 @@ def segmentation_disc(isolated_nerve, img_eq):
     disc = cv2.inRange(median, lower_disc, upper_disc)
 
     cup = cv2.inRange(median, lower_cup, upper_cup)
+
+
+    # Identificação dos contornos
+    contours_disc, _ = cv2.findContours(disc, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     
-    return median, disc, cup
+    # Encontrar o contorno com a maior área
+    disc_contour = max(contours_disc, key=cv2.contourArea)
+    
+    # Encontrar as coordenadas do retângulo ao redor do contorno encontrado
+    x,y,w,h = cv2.boundingRect(disc_contour)
+
+    rect_disc = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)  
+    
+    return median, disc, cup, rect_disc
