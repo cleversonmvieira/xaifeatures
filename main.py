@@ -144,11 +144,11 @@ def app():
         rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
         
         st.image(rect_disc) 
-        st.write(rect_disc.shape, rect_disc.dtype)
+        st.write("Delimitação das extremidades do Disco Óptico")
 
         rect_cup = segmentation.segmentation_cup(isolated_nerve, img_eq)
         st.image(rect_cup) 
-        st.write(rect_cup.shape, rect_cup.dtype)
+        st.write("Delimitação das extremidades da Copa Óptica")
 
 
 def applyShap(image):
