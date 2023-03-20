@@ -4,7 +4,7 @@ import numpy as ppool
 from skimage import color, util
 
 def segmentation_disc(isolated_nerve, img_eq):
-    img_eq = cv2.convertScaleAbs(img_eq, alpha = 1./256., beta=-.49999)
+    img_eq = cv2.convertScaleAbs(img_eq)
     #gray = color.rgb2gray(img_eq)
     #gray = util.img_as_uint(gray)
     
