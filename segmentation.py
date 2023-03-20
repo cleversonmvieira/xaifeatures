@@ -11,9 +11,9 @@ def segmentation_disc(isolated_nerve, img_eq):
 
     #gray = np.float32(gray)
 
-    equ = cv2.equalizeHist(gray)
+    #equ = cv2.equalizeHist(gray)
 
-    #median = cv2.medianBlur(equ,15)
+    median = cv2.medianBlur(gray,15)
 
     #_, disc = cv2.threshold(gray, 195, 255, cv2.THRESH_BINARY)
     
