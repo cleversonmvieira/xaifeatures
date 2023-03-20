@@ -41,7 +41,7 @@ def segmentation_cup(isolated_nerve, img_eq):
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
     median = cv2.medianBlur(final,7)
 
-    lower_cup = np.array([255,255,255])
+    lower_cup = np.array([250,250,250])
     upper_cup = np.array([255,255,255])
 
     #_, disc = cv2.threshold(median, 33, 255, cv2.THRESH_BINARY)
