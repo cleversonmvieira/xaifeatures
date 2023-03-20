@@ -3,5 +3,5 @@ import numpy as np
 
 def equalization(img):
     img_eq = exposure.equalize_adapthist(img, clip_limit=0.05)
-    
+    img_eq = np.uint8(img_eq)
     return img_eq
