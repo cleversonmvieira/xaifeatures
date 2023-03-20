@@ -62,5 +62,5 @@ def segmentation_cup(isolated_nerve, img_eq):
     
     st.write(len(cup_contour))
 
-    return rect_cup
+    return cup
 
