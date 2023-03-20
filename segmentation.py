@@ -7,6 +7,11 @@ def segmentation_disc(isolated_nerve, img_eq):
     orig_2 = img_eq_int.copy()
     
     gray = cv2.cvtColor(img_eq_int, cv2.COLOR_BGR2GRAY)
-    _, disc = cv2.threshold(gray, 250, 255, cv2.THRESH_BINARY)
+
+    equ = cv2.equalizeHist(gray)
+
+    median = cv2.medianBlur(equ,15)
+
+    _, disc = cv2.threshold(gray, 195, 255, cv2.THRESH_BINARY)
     
     return disc
