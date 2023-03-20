@@ -58,5 +58,5 @@ def segmentation_cup(isolated_nerve, img_eq):
 
     rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)  
     
-    return rect_cup
+    return cup
 
