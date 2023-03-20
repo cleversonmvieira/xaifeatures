@@ -23,4 +23,4 @@ def segmentation_disc(isolated_nerve, img_eq):
 
     #_, disc = cv2.threshold(gray, 33, 255, cv2.THRESH_BINARY)
     
-    return gray, final
+    return gray, median
