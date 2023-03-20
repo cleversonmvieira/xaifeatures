@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import numpy as ppool
-from skimage import color, util
+import streamlit as st
 
 def segmentation_disc(isolated_nerve, img_eq):
 
@@ -58,5 +58,7 @@ def segmentation_cup(isolated_nerve, img_eq):
 
     rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)  
     
-    return cup
+    st.write(cup_contour)
+
+    return rect_cup
 
