@@ -3,7 +3,7 @@ import numpy as np
 from skimage import color, util
 
 def segmentation_disc(isolated_nerve, img_eq):
-    img_eq = np.uint8(img_eq)
+    img_eq = np.float64(img_eq)
     gray = color.rgb2gray(img_eq)
     #gray = util.img_as_uint(gray)
     
