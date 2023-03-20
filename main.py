@@ -133,7 +133,6 @@ def app():
 
         img_eq = equalization.equalization(isolated_nerve)
         st.image(img_eq)
-
         st.write(img_eq.shape, img_eq.dtype)
 
         import segmentation
@@ -144,6 +143,7 @@ def app():
         
         gray = segmentation.segmentation_disc(isolated_nerve, img_eq)
         st.image(gray) 
+        st.write(gray.shape, gray.dtype)
 
 
 def applyShap(image):
