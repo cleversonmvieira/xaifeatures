@@ -39,12 +39,12 @@ def segmentation_cup(isolated_nerve, img_eq):
     
     norm = ppool.zeros((15,15))
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
-    
     median = cv2.medianBlur(final,7)
 
     lower_cup = np.array([255,255,255])
     upper_cup = np.array([255,255,255])
 
+    #_, disc = cv2.threshold(median, 33, 255, cv2.THRESH_BINARY)
     cup = cv2.inRange(median, lower_cup, upper_cup)
 
     # Identificação dos contornos
@@ -56,6 +56,7 @@ def segmentation_cup(isolated_nerve, img_eq):
     # Encontrar as coordenadas do retângulo ao redor do contorno encontrado
     x,y,w,h = cv2.boundingRect(cup_contour)
 
-    rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)
-
+    rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(255,255,255),2)  
+    
     return rect_cup
+
