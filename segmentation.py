@@ -10,6 +10,7 @@ def segmentation_disc(isolated_nerve, img_eq):
     
     norm = ppool.zeros((15,15))
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
+    
     gray = cv2.cvtColor(img_eq, cv2.COLOR_RGB2GRAY)
 
     #gray = np.float64(gray)
@@ -22,4 +23,4 @@ def segmentation_disc(isolated_nerve, img_eq):
 
     #_, disc = cv2.threshold(gray, 33, 255, cv2.THRESH_BINARY)
     
-    return gray, median
+    return gray, final
