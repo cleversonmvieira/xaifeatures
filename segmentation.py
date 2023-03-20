@@ -11,7 +11,7 @@ def segmentation_disc(isolated_nerve, img_eq):
     norm = ppool.zeros((15,15))
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
     
-    median = cv2.medianBlur(final,7)
+    median = cv2.medianBlur(final,9)
 
     lower_disc = np.array([255,229,0])
     upper_disc = np.array([255,255,36])
@@ -39,7 +39,7 @@ def segmentation_cup(isolated_nerve, img_eq):
     
     norm = ppool.zeros((15,15))
     final = cv2.normalize(img_eq,  norm, 0, 255, cv2.NORM_MINMAX)
-    median = cv2.medianBlur(final,7)
+    median = cv2.medianBlur(final,9)
 
     lower_cup = np.array([250,250,250])
     upper_cup = np.array([255,255,255])
