@@ -141,12 +141,11 @@ def app():
         #st.image(disc)
         #st.image(rect_disc)
         
-        rect_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
-        
+        rect_disc,Xrec_disc,xrec_disc,Yrec_disc,yrec_disc = segmentation.segmentation_disc(isolated_nerve, img_eq)
         st.image(rect_disc) 
         st.write("Delimitação das extremidades do Disco Óptico")
 
-        rect_cup = segmentation.segmentation_cup(isolated_nerve, img_eq)
+        rect_cup,Xrec_cup,xrec_cup,Yrec_cup,yrec_cup = segmentation.segmentation_cup(isolated_nerve, img_eq)
         st.image(rect_cup) 
         st.write("Delimitação das extremidades da Copa Óptica")
 

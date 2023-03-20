@@ -28,9 +28,14 @@ def segmentation_disc(isolated_nerve, img_eq):
     # Encontrar as coordenadas do retângulo ao redor do contorno encontrado
     x,y,w,h = cv2.boundingRect(disc_contour)
 
+    Xrec_disc = x+w
+    xrec_disc = x
+    Yrec_disc = y+h
+    yrec_disc = y
+
     rect_disc = cv2.rectangle(orig,(x,y),(x+w,y+h),(0,0,0),2)  
     
-    return rect_disc
+    return rect_disc,Xrec_disc,xrec_disc,Yrec_disc,yrec_disc
 
 
 def segmentation_cup(isolated_nerve, img_eq):
@@ -56,9 +61,14 @@ def segmentation_cup(isolated_nerve, img_eq):
     # Encontrar as coordenadas do retângulo ao redor do contorno encontrado
     x,y,w,h = cv2.boundingRect(cup_contour)
 
+    Xrec_cup = x+w
+    xrec_cup = x
+    Yrec_cup = y+h
+    yrec_cup = y
+
     #result_cup = cv2.drawContours(orig, [cup_contour], -1, (255, 255, 255), 2)
 
     rect_cup = cv2.rectangle(orig,(x,y),(x+w,y+h),(0,0,0),2)  
 
-    return rect_cup
+    return rect_cup, Xrec_cup,xrec_cup,Yrec_cup,yrec_cup
 
